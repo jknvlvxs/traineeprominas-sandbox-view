@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { FormsModule } from '@angular/forms';
+import { MatButtonModule, MatCardModule, MatIconModule, MatInputModule,
+  MatListModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 import { UsersComponent } from './user/users/users.component';
 import { UserFilteredComponent } from './user/user-filtered/user-filtered.component';
@@ -23,6 +24,8 @@ import { StudentsComponent } from './student/students/students.component';
 import { StudentCreateComponent } from './student/student-create/student-create.component';
 import { StudentUpdateComponent } from './student/student-update/student-update.component';
 import { StudentFilteredComponent } from './student/student-filtered/student-filtered.component';
+import { MenuComponent } from './menu/menu.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -43,12 +46,26 @@ import { StudentFilteredComponent } from './student/student-filtered/student-fil
     StudentCreateComponent,
     StudentUpdateComponent,
     StudentFilteredComponent,
+    MenuComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    HttpClientModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCardModule,
+    MatIconModule,
+    MatListModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatToolbarModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { UsersComponent } from './user/users/users.component';
 import { UserFilteredComponent } from './user/user-filtered/user-filtered.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserUpdateComponent } from './user/user-update/user-update.component';
+
 import { TeachersComponent } from './teacher/teachers/teachers.component';
 import { TeacherFilteredComponent } from './teacher/teacher-filtered/teacher-filtered.component';
 import { TeacherCreateComponent } from './teacher/teacher-create/teacher-create.component';
@@ -32,12 +33,12 @@ const routes: Routes = [
     data: { title: 'Usuário' }
   },
   {
-    path: 'user/create',
+    path: 'create/user',
     component: UserCreateComponent,
     data: { title: 'Adicionar Usuário' }
   },
   {
-    path: 'user/update/:id',
+    path: 'update/user/:id',
     component: UserUpdateComponent,
     data: { title: 'Editar Usuário' }
   },
@@ -57,12 +58,12 @@ const routes: Routes = [
     data: { title: 'Professor' }
   },
   {
-    path: 'teacher/create',
+    path: 'create/teacher',
     component: TeacherCreateComponent,
     data: { title: 'Adicionar Professor' }
   },
   {
-    path: 'teacher/update/:id',
+    path: 'update/teacher/:id',
     component: TeacherUpdateComponent,
     data: { title: 'Editar Professor' }
   },
@@ -82,12 +83,12 @@ const routes: Routes = [
     data: { title: 'Curso' }
   },
   {
-    path: 'course/create',
+    path: 'create/course',
     component: CourseCreateComponent,
     data: { title: 'Adicionar Curso' }
   },
   {
-    path: 'course/update/:id',
+    path: 'update/course/:id',
     component: CourseUpdateComponent,
     data: { title: 'Editar Curso' }
   },
@@ -107,12 +108,12 @@ const routes: Routes = [
     data: { title: 'Estudante' }
   },
   {
-    path: 'student/create',
+    path: 'create/student',
     component: StudentCreateComponent,
     data: { title: 'Adicionar Estudante' }
   },
   {
-    path: 'student/update/:id',
+    path: 'update/student/:id',
     component: StudentUpdateComponent,
     data: { title: 'Editar Estudante' }
   },
