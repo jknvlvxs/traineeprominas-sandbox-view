@@ -1,3 +1,28 @@
-<p>
-  user-filtered works!
-</p>
+<div class="example-container mat-elevation-z8">
+    <div class="button-row">
+        <button mat-flat-button color="accent" [routerLink]="['/user']"><mat-icon>list</mat-icon> Voltar</button>
+    </div>  
+  <div class="example-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title><h2>{{user.name}}</h2></mat-card-title>
+        <mat-card-subtitle>{{user.lastName}}</mat-card-subtitle>
+        <mat-card-subtitle>{{user.profile}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- <dl>
+          <dt>Preço:</dt>
+          <dd>{{produto.preco_produto}}</dd>
+          <dt>Atualizado em:</dt>
+          <dd>{{produto.dt_atualizacao | date}}</dd>
+        </dl> -->
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" class="teste" [routerLink]="['/update/user', user.id]"><mat-icon>edit</mat-icon> Editar</button>
+        <button mat-flat-button color="warn" (click)="deleteUser(user.id)"><mat-icon>delete</mat-icon> Excluir</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>

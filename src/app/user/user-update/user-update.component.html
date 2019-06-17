@@ -1,3 +1,16 @@
-<p>
-  user-update works!
-</p>
+<div>
+    <h3>Editar Produto</h3>
+  </div>
+  <form class="example-container" [formGroup]="userForm" (ngSubmit)="putUser(userForm.value)">
+    <mat-form-field>
+      <input matInput name="name" placeholder="Nome do Usuário" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <textarea  matInput name="lastName" placeholder="Sobrenome do Usuário" formControlName="lastName"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="profile" placeholder="Perfil do Usuário" formControlName="profile">
+    </mat-form-field>
+
+    <button type="submit" [disabled]="!userForm.valid" mat-button color="primary" >Editar</button>
+  </form>
