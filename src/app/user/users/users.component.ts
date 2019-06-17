@@ -7,8 +7,9 @@ import { User } from 'src/model/user';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
+
 export class UsersComponent implements OnInit {
-  displayedColumns: string[] = [ 'id', 'name', 'lastName', 'profile'];
+  displayedColumns: string[] = [ 'id', 'name', 'lastName', 'profile', 'action'];
   dataSource: User[];
   isLoadingResults = true;
 
