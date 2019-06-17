@@ -10,10 +10,12 @@ import { TeachersComponent } from './teacher/teachers/teachers.component';
 import { TeacherFilteredComponent } from './teacher/teacher-filtered/teacher-filtered.component';
 import { TeacherCreateComponent } from './teacher/teacher-create/teacher-create.component';
 import { TeacherUpdateComponent } from './teacher/teacher-update/teacher-update.component';
+
 import { CoursesComponent } from './course/courses/courses.component';
 import { CourseFilteredComponent } from './course/course-filtered/course-filtered.component';
 import { CourseCreateComponent } from './course/course-create/course-create.component';
 import { CourseUpdateComponent } from './course/course-update/course-update.component';
+
 import { StudentsComponent } from './student/students/students.component';
 import { StudentFilteredComponent } from './student/student-filtered/student-filtered.component';
 import { StudentCreateComponent } from './student/student-create/student-create.component';
