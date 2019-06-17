@@ -1,11 +1,11 @@
 import {Teacher} from './teacher';
 
 export class Course {
-    _id: string;
+    // _id: string;
     id: number;
     name: string;
     period: number;
     city: string;
     teacher: Teacher;
-    status: number;
+    // status: number;
 }
