@@ -6,6 +6,6 @@ export class Course {
     name: string;
     period: number;
     city: string;
-    teacher: Teacher;
+    teacher: Teacher[] = [];
     // status: number;
 }
