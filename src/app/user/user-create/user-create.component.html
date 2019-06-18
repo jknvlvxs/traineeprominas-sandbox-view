@@ -3,14 +3,18 @@
   </div>
   <form class="example-container" [formGroup]="userForm" (ngSubmit)="postUser(userForm.value)">
     <mat-form-field>
-      <input matInput name="name" placeholder="Nome do Usuário" formControlName="name">
+      <input matInput name="name" required placeholder="Nome do Usuário" formControlName="name">
     </mat-form-field>
     <mat-form-field>
-      <textarea  matInput name="lastName" placeholder="Sobrenome do Usuário" formControlName="lastName"></textarea>
+      <input  matInput name="lastName" required placeholder="Sobrenome do Usuário" formControlName="lastName">
     </mat-form-field>
     <mat-form-field>
-      <input matInput name="profile" placeholder="Perfil do Usuário" formControlName="profile">
-    </mat-form-field>
+        <mat-label>Perfil</mat-label>
+        <select matNativeControl required name="profile" formControlName="profile">
+          <option value="admin">Administrador</option>
+          <option value="guess">Visitante</option>
+        </select>
+      </mat-form-field>
   
     <button type="submit" [disabled]="!userForm.valid" mat-button color="primary" >Adicionar</button>
   </form>
