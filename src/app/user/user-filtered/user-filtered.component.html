@@ -8,9 +8,9 @@
     </div>
     <mat-card class="example-card">
       <mat-card-header>
-          <mat-card-subtitle *ngIf="user">{{user.id}}</mat-card-subtitle>
-        <mat-card-title *ngIf="user"><h2>{{user.name}} {{user.lastName}}</h2></mat-card-title>
-        <mat-card-subtitle *ngIf="user">{{user.profile}}</mat-card-subtitle>
+          <mat-card-subtitle>{{user.id}}</mat-card-subtitle>
+        <mat-card-title><h2>{{user.name}} {{user.lastName}}</h2></mat-card-title>
+        <mat-card-subtitle>{{user.profile}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <!-- <dl>
@@ -27,4 +27,4 @@
     </mat-card>
   </div>
 
-  <div *ngIf="user.id == 0">404</div>
+  <div *ngIf="isLoadingResults == false && user.id == 0">404</div>

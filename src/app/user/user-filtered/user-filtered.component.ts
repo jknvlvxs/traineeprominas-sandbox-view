@@ -20,8 +20,10 @@ export class UserFilteredComponent implements OnInit {
   getUser(id) {
     this.api.getUser(id)
       .subscribe(data => {
-        this.user = data[0];
         this.isLoadingResults = false;
+        if (data) {
+        this.user = data[0];
+        }
       });
   }
 
