@@ -1,3 +1,27 @@
-<p>
-  student-filtered works!
-</p>
+<div *ngIf="student.id != 0" class="example-container mat-elevation-z8">
+    <div class="button-row">
+        <button mat-flat-button color="accent" [routerLink]="['/student']"><mat-icon>list</mat-icon> Voltar</button>
+    </div>  
+  <div class="example-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-subtitle>{{student.id}}</mat-card-subtitle>
+        <mat-card-title><h2>{{student.name}} {{student.lastName}}</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <mat-card-subtitle>{{student.age}} anos</mat-card-subtitle>
+          <mat-list> Cursos:
+            <mat-list-item *ngFor="let curso of student.course" routerLink="/course/{{curso.id}}">{{curso.name}} {{curso.lastName}}</mat-list-item>
+          </mat-list>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" class="teste" [routerLink]="['/update/student', student.id]"><mat-icon>edit</mat-icon> Editar</button>
+        <button mat-flat-button color="warn" (click)="deleteStudent(student.id)"><mat-icon>delete</mat-icon> Excluir</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div *ngIf="isLoadingResults == false && student.id == 0">404</div>
