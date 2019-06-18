@@ -20,12 +20,12 @@ export class UserFilteredComponent implements OnInit {
   getUser(id) {
     this.api.getUser(id)
       .subscribe(data => {
-        this.user = data;
+        this.user = data[0];
         this.isLoadingResults = false;
       });
   }
 
-  deleteProduto(id) {
+  deleteUser(id) {
     this.isLoadingResults = true;
     this.api.deleteUser(id)
       .subscribe(res => {
