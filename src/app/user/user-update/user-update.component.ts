@@ -28,11 +28,11 @@ export class UserUpdateComponent implements OnInit {
 
  getUser(id) {
   this.api.getUser(id).subscribe(data => {
-    this.id = data.id;
+    this.id = data[0].id;
     this.userForm.setValue({
-      name: data.name,
-      lastName: data.lastName,
-      profile: data.profile
+      name: data[0].name,
+      lastName: data[0].lastName,
+      profile: data[0].profile
     });
   });
 }
