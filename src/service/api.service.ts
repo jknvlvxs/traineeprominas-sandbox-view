@@ -59,6 +59,14 @@ export class ApiService {
     );
   }
 
+  getTeacher(id: number): Observable<Teacher> {
+    const url = `${apiUrl}/JSON/teacher/${id}`;
+    return this.http.get<Teacher>(url).pipe(
+      tap(_ => console.log(`leu o professor id=${id}`)),
+      catchError(this.handleError<Teacher>(`getTeacher id=${id}`))
+    );
+  }
+
   postUser(user): Observable<User> {
     return this.http.post<User>(`${apiUrl}/user`, user, httpOptions).pipe(
       tap((user: User) => console.log(`adicionou o usuário com w/ id=${user.id}`)),
@@ -67,7 +75,7 @@ export class ApiService {
   }
 
   putUser(id, user): Observable<any> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${apiUrl}/user/${id}`;
     return this.http.put(url, user, httpOptions).pipe(
       tap(_ => console.log(`atualiza o usuário com id=${id}`)),
       catchError(this.handleError<any>('updateUser'))
@@ -75,10 +83,18 @@ export class ApiService {
   }
 
   deleteUser(id): Observable<User> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${apiUrl}/user/${id}`;
     return this.http.delete<User>(url, httpOptions).pipe(
       tap(_ => console.log(`remove o usuário com id=${id}`)),
       catchError(this.handleError<User>('deleteUser'))
+    );
+  }
+
+  deleteTeacher(id): Observable<Teacher> {
+    const url = `${apiUrl}/teacher/${id}`;
+    return this.http.delete<Teacher>(url, httpOptions).pipe(
+      tap(_ => console.log(`remove o professor com id=${id}`)),
+      catchError(this.handleError<Teacher>('deleteTeacher'))
     );
   }
 
