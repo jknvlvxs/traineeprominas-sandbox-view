@@ -2,6 +2,7 @@
     margin: 5px;
   }
   .example-container {
+    width: 90%;
     position: relative;
     padding: 5px;
   }
