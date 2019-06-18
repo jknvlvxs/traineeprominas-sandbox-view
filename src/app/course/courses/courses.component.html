@@ -35,7 +35,7 @@
         <th mat-header-cell *matHeaderCellDef> Professores </th>
         <td mat-cell *matCellDef="let row">
           <!-- <ul class="teachers"> -->
-            <li *ngFor="let prof of row.teacher" >{{prof.name}}</li>
+            <mat-list-item *ngFor="let prof of row.teacher" >{{prof.name}}</mat-list-item>
           <!-- </ul> -->
         </td>
         <!-- <td mat-cell *matCellDef="let row"> {{row.prof}} </td> -->
