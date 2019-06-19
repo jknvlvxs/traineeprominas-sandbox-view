@@ -15,12 +15,12 @@ export class UsersComponent implements OnInit {
   dataSource: MatTableDataSource<User>;
   isLoadingResults = true;
 
-  constructor(private _api: ApiService) { }
+  constructor(private api: ApiService) { }
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
-    this._api.getUsers()
+    this.api.getUsers()
     .subscribe(res => {
       this.dataSource = new MatTableDataSource<User>(res);
       this.dataSource.paginator = this.paginator;

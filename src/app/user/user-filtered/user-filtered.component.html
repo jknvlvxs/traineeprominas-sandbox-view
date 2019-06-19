@@ -12,19 +12,10 @@
         <mat-card-title><h2>{{user.name}} {{user.lastName}}</h2></mat-card-title>
         <mat-card-subtitle>{{user.profile}}</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-content>
-        <!-- <dl>
-          <dt>Preço:</dt>
-          <dd>{{produto.preco_produto}}</dd>
-          <dt>Atualizado em:</dt>
-          <dd>{{produto.dt_atualizacao | date}}</dd>
-        </dl> -->
-      </mat-card-content>
       <mat-card-actions>
         <button mat-flat-button color="primary" class="teste" [routerLink]="['/update/user', user.id]"><mat-icon>edit</mat-icon> Editar</button>
         <button mat-flat-button color="warn" (click)="deleteUser(user.id)"><mat-icon>delete</mat-icon> Excluir</button>
       </mat-card-actions>
     </mat-card>
   </div>
-
   <div *ngIf="isLoadingResults == false && user.id == 0">404</div>

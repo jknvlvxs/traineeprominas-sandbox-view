@@ -8,9 +8,6 @@
     <mat-form-field>
       <input  matInput name="lastName" placeholder="Sobrenome do Professor" formControlName="lastName">
     </mat-form-field>
-    <!-- <mat-form-field>
-      <input matInput name="phd" placeholder="Perfil do Professor" formControlName="phd">
-    </mat-form-field> -->
 <mat-form-field>
   <mat-label>PHD</mat-label>
   <select matNativeControl required name="phd" formControlName="phd">
@@ -18,6 +15,5 @@
     <option value="false">Não possui</option>
   </select>
 </mat-form-field>
-
     <button type="submit" [disabled]="!teacherForm.valid" mat-button color="primary" >Editar</button>
   </form>

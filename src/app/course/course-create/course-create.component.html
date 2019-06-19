@@ -17,6 +17,5 @@
         <mat-option *ngFor="let prof of teacher" [value]="prof.id">{{prof.name}} {{prof.lastName}}</mat-option>
         </mat-select>
       </mat-form-field>
-
     <button type="submit" [disabled]="!courseForm.valid" mat-button color="primary" >Adicionar</button>
   </form>
