@@ -32,13 +32,15 @@ export class CourseCreateComponent implements OnInit {
   });
 }
 
-  postCourse(form: NgForm) {
+  postCourse(form) {
+    if (!form.period) {
+      form.period = 8;
+    }
     this.isLoadingResults = true;
     this.api.postCourse(form)
       .subscribe(res => {
-          // const id = res['id'];
           this.isLoadingResults = false;
-          this.router.navigate(['/course'/*, id*/]);
+          this.router.navigate(['/course/']);
         }, (err) => {
           console.log(err);
           this.isLoadingResults = false;
