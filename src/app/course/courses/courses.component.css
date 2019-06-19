@@ -1,5 +1,9 @@
-table{
+.mat-elevation-z8{
     width: 90%;
+}
+
+table{
+    width: 100%
 }
 
 li{

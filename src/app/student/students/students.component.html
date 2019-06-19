@@ -2,7 +2,8 @@
       <button mat-flat-button color="accent" routerLink="/create/student" selected>Novo Estudante</button>    
 <h3>Lista de Estudantes</h3>
   </div>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
   
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -44,3 +45,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <mat-paginator [pageSizeOptions]="[1, 5, 10, 20]"></mat-paginator>
+</div>

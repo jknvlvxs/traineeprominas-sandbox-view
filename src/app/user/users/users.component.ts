@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../../../service/api.service';
 import { User } from 'src/model/user';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-users',
@@ -10,16 +12,18 @@ import { User } from 'src/model/user';
 
 export class UsersComponent implements OnInit {
   displayedColumns: string[] = [ 'id', 'name', 'lastName', 'profile', 'action'];
-  dataSource: User[];
+  dataSource: MatTableDataSource<User>;
   isLoadingResults = true;
 
   constructor(private _api: ApiService) { }
 
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
   ngOnInit() {
     this._api.getUsers()
     .subscribe(res => {
-      this.dataSource = res;
-      console.log(this.dataSource);
+      this.dataSource = new MatTableDataSource<User>(res);
+      this.dataSource.paginator = this.paginator;
       this.isLoadingResults = false;
     }, err => {
       console.log(err);
