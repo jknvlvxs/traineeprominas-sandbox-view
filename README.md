@@ -8,7 +8,7 @@ This view consumes the **REST API** (https://traineeprominas-lpop-sandbox.heroku
 
 Obs: 
 * This is not the design used for viewing on *Heroku*. This is only the development project.
-	 * The project used to connect to *Heroku* is called **traineeprominas-jjac-view-heroku**
+	 * The project used to connect to *Heroku* is called **traineeprominas-jjac-view-sandbox-heroku**
 	 
 ## About
 For this project, the Angular was used to create the visualizations of each endpoint and to realize the CRUD
