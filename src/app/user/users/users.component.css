@@ -5,3 +5,8 @@
 table{
     width: 100%
 }
+
+.filter{
+    margin: 1%;
+    width: 35%;
+}

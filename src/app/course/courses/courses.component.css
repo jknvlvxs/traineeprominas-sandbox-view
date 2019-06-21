@@ -9,3 +9,8 @@ table{
 li{
     background-color:transparent;
 }
+
+.filter{
+    margin: 1%;
+    width: 35%;
+}

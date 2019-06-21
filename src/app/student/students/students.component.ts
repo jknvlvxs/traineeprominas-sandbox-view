@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../../../service/api.service';
 import { Student } from 'src/model/student';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-students',
@@ -13,6 +13,7 @@ import {MatTableDataSource} from '@angular/material/table';
 export class StudentsComponent implements OnInit {
   displayedColumns: string[] = [ 'id', 'name', 'lastName', 'age', 'course', 'action'];
   dataSource: MatTableDataSource<Student>;
+
   isLoadingResults = true;
 
   constructor(private _api: ApiService) { }
@@ -21,8 +22,9 @@ export class StudentsComponent implements OnInit {
     this._api.getStudents()
     .subscribe(res => {
       this.dataSource = new MatTableDataSource<Student>(res);
+      res.forEach(i => {
+      });
       this.dataSource.paginator = this.paginator;
-      console.log(this.dataSource);
       this.isLoadingResults = false;
     }, err => {
       console.log(err);
@@ -30,4 +32,30 @@ export class StudentsComponent implements OnInit {
     });
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filterPredicate = (data, filter: string)  => {
+      const accumulator = (currentTerm, key) => {
+        return this.nestedFilterCheck(currentTerm, data, key);
+      };
+      const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
+      // Transform the filter by converting it to lowercase and removing whitespace.
+      const transformedFilter = filter.trim().toLowerCase();
+      return dataStr.indexOf(transformedFilter) !== -1;
+    };
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  nestedFilterCheck(search, data, key) {
+    if (typeof data[key] === 'object') {
+      for (const k in data[key][0]) {
+        if (k === 'name') {
+          if (data[key][0][k] !== null) {
+            search = this.nestedFilterCheck(search, data[key][0], k);
+          }
+        }
+      }
+    } else {
+      search += data[key];
+    }
+    return search;
+  }
 }

@@ -31,4 +31,7 @@ export class UsersComponent implements OnInit {
     });
   }
 
+    applyFilter(filterValue: string) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
 }

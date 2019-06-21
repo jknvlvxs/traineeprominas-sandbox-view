@@ -3,6 +3,9 @@
 <h3>Lista de Estudantes</h3>
   </div>
 <div class="mat-elevation-z8">
+    <mat-form-field class='filter'>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+    </mat-form-field>
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -31,5 +34,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[1, 5, 10, 20]"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
 </div>

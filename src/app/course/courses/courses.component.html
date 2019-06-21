@@ -3,6 +3,9 @@
 <h3>Lista de Cursos</h3>
   </div>
 <div class="mat-elevation-z8">
+    <mat-form-field class='filter'>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro">
+    </mat-form-field>
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID </th>
